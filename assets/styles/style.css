@@ -207,6 +207,9 @@ img {
 }
 
 @media screen and (max-width: 1043px) and (min-width: 768px) {
+  .gallery-btn--right, .gallery-btn--left {
+    display: none;
+  }
   .modal-window__title {
     font-size: 50px;
   }
@@ -223,6 +226,9 @@ img {
   }
 }
 @media screen and (max-width: 767px) {
+  .gallery-btn--right, .gallery-btn--left {
+    display: none;
+  }
   .modal-window__container {
     flex-direction: column;
   }
