@@ -1,6 +1,5 @@
  import { FILMS_URL_MOVIES, API_KEY_MOVIES, movieslist, seriesList, cartoonList } from "./app";
- 
-//АНЯ НАЧАЛО секция MOVIES
+
 async function getFilms() {
     try {
         const response = await fetch(FILMS_URL_MOVIES, {
@@ -26,7 +25,7 @@ function createMovieCard(parent, image, alt, year, country, genres, text) {
         event.preventDefault;
         showMovieModalWindow(image, alt, year, country, genres, text);
     })
-    item.innerHTML = `<img class="movies-list__img" src="${image}" alt="${alt}">`
+    item.insertAdjacentHTML(`afterbegin`,`<img class="movies-list__img" src="${image}" alt="${alt}">` )
 
     parent.append(item);
 
@@ -63,7 +62,6 @@ function checmoviekType(array) {
     }
 }
 
-//галерея ()
 import { moviesBtnLeft, moviesBtnRight, moviesWrapper, seriesBtnLeft, seriesBtnRight, seriesWrapper, cartoonBtnLeft, cartoonBtnRight, cartoonWrapper  } from "./app";
 
 document.addEventListener(
@@ -119,7 +117,6 @@ modalWindowBtn.addEventListener('click', (event) => {
 
 getFilms();
 
-//АНЯ КОНЕЦ
 
 //НАТАША НАЧАЛО
 
