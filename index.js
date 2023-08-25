@@ -1,12 +1,5 @@
-// import { obj } from "./app";
+ import { FILMS_URL_MOVIES, API_KEY_MOVIES, movieslist, seriesList, cartoonList } from "./app";
 //АНЯ НАЧАЛО секция MOVIES
-const FILMS_URL_MOVIES = `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100`;
-const API_KEY_MOVIES = `1CZFK25-MDA4Q4W-MJVMYF9-Q7QZBH1`;
-
-const movieslist = document.querySelector('.movies-list');
-const seriesList = document.querySelector('.series-list');
-const cartoonList = document.querySelector('.cartoon-list');
-
 async function getFilms() {
     try {
         const response = await fetch(FILMS_URL_MOVIES, {
@@ -63,20 +56,7 @@ function checmoviekType(array) {
 }
 
 //галерея ()
-
-const moviesBtnLeft = document.getElementById('movie-btn--left');
-const moviesBtnRight = document.getElementById('movie-btn--right');
-const moviesWrapper = document.getElementById('movies-wrapper');
-
-const seriesBtnLeft = document.getElementById('series-btn--left');
-const seriesBtnRight = document.getElementById('series-btn--right');
-const seriesWrapper = document.getElementById('series-wrapper');
-
-const cartoonBtnLeft = document.getElementById('cartoon-btn--left');
-const cartoonBtnRight = document.getElementById('cartoon-btn--right');
-const cartoonWrapper = document.getElementById('cartoon-wrapper');
-
-
+import { moviesBtnLeft, moviesBtnRight, moviesWrapper, seriesBtnLeft, seriesBtnRight, seriesWrapper, cartoonBtnLeft, cartoonBtnRight, cartoonWrapper  } from "./app";
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -104,15 +84,7 @@ document.addEventListener(
 );
 
 
-
-const modalWindowSection = document.querySelector('.modal-window');
-const modalWindowTitle = document.querySelector('.modal-window__title');
-const modalWindowImage = document.querySelector('.modal-window__img');
-const modalWindowYear = document.querySelector('.modal-window__year');
-const modalWindowCountry = document.querySelector('.modal-window__country');
-const modalWindowGenres = document.querySelector('.modal-window__genres');
-const modalWindowText = document.querySelector('.modal-window__text');
-const modalWindowBtn = document.querySelector('.modal-window__btn');
+import { modalWindowSection, modalWindowTitle, modalWindowImage, modalWindowYear, modalWindowCountry, modalWindowGenres, modalWindowText, modalWindowBtn  } from "./app";
 
 function showMovieModalWindow(image, alt, year, country, genres, text) {
     modalWindowSection.classList.add('modal-window--active');
@@ -144,8 +116,7 @@ getFilms();
 //НАТАША НАЧАЛО
 
 //slider realization//
-const PREMIERS_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
-const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST`;
+import { PREMIERS_URL, PREMIERS_API_KEY } from "./app";
 
 async function getPremiers() {
     try {
@@ -166,7 +137,7 @@ async function getPremiers() {
     }
 }
 
-const premiereSlider = document.querySelector('.mySwiper');
+import { premiereSlider } from "./app";
 
 function showPremiers(array) {
     for (let item of array) {
@@ -192,16 +163,7 @@ getPremiers();
 //НАТАША КОНЕЦ
 
 //ЛЕНА НАЧАЛО
-
-const FILMSS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
-const API_KEY_POPULAR = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
-const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
-const API_URL_SEARCH = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
-
-const moviesElem = document.querySelector(".popular-movies");
-
-const searchResultsEl = document.querySelector(".search-movies");
-const form = document.querySelector("form");
+import { FILMSS_URL, API_KEY_POPULAR, API_URL_POPULAR, API_URL_SEARCH, moviesElem, searchResultsEl, form} from "./app";
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -215,7 +177,7 @@ form.addEventListener("submit", async (e) => {
     }
 });
 
-const search = document.querySelector(".header__search");
+import { search } from "./app";
 
 async function getMovies(url) {
     try {
@@ -269,18 +231,14 @@ function displayMovies(data, container) {
     }
 }
 
-
-const modalOverlay = document.getElementById("modalOverlay");
-const modalCloseBtn = document.getElementById("modalCloseBtn");
-const modalPrevBtn = document.getElementById("modalPrevBtn");
-const modalNextBtn = document.getElementById("modalNextBtn");
+import { modalOverlay, modalCloseBtn, modalPrevBtn, modalNextBtn} from "./app";
 
 let currentModalPage = 1;
 let moviesPerPage = 10;
 let modalMoviesData = [];
 
 function openModal() {
-    obj.modalOverlay.style.display = "flex";
+    modalOverlay.style.display = "flex";
     document.body.style.overflow = "hidden";
 }
 
@@ -355,16 +313,7 @@ main();
 //ЛЕНА КОНЕЦ
 
 //ЮЛЯ НАЧАЛО
-
-const TOP_FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=`
-const TOP_FILMS_PAGE_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=`
-const TRILLERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=1&type=FILM`;
-const DRAMAS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=2&type=FILM`;
-const FANTASY_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6&type=FILM`;
-const COMEDIES_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&type=FILM`
-const HORRIRS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=17&type=FILM`
-const RANDOM_API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
-
+import { TOP_FILMS_URL, TOP_FILMS_PAGE_URL, TRILLERS_URL, DRAMAS_URL, FANTASY_URL, COMEDIES_URL, HORRIRS_URL, RANDOM_API_KEY } from "./app";
 
 function arrayRandElement(arr) {
     const rand = Math.floor(Math.random() * arr.length);
@@ -392,8 +341,7 @@ async function getRandomMovie(url) {
 };
 
 
-
-const moviesRandomEl = document.querySelector(".random-movies");
+import { moviesRandomEl } from "./app";
 
 function showRandomMovie(movie) {
     const country = movie.countries.map((country) => country.country);
@@ -441,7 +389,7 @@ function checkSelect() {
         getRandomMovie(FANTASY_URL)
     }
 }
-const randomForm = document.querySelector('.random-form')
+import {randomForm} from "./app";
 
 randomForm.addEventListener('change', (e) => {
     e.preventDefault();
@@ -483,7 +431,8 @@ async function getTopFilmsTwo(num) {
     }
 };
 
-const boxes = document.querySelector('.top-250-films__boxes')
+import { boxes } from "./app";
+
 function showTopMovies(data, conatainer) {
     const topMoviesBox = document.querySelector(conatainer);
     data.films.forEach((movie) => {
@@ -565,9 +514,7 @@ hideBtn.addEventListener('click', event => {
 })
 
 
-
-const loadingDiv = document.querySelector('.loader')
-
+import { loadingDiv } from "./app";
 
 const loader = () => {
     loadingDiv.style.display = 'block';
