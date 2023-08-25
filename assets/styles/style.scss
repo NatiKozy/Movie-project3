@@ -7,7 +7,7 @@ $section-color: #0a031c;
 $pink-color: #FF4D6D;
 $blue-color: #54E1FF;
 $general-color: #263459;
-$general-font: 'Poppins';
+$general-font: 'Montserrat';
 @mixin font-style{
   font-size: 30px;
 }
@@ -18,7 +18,7 @@ $general-font: 'Poppins';
 }
 
 @mixin button-general-style{
-  font-family: 'Poppins';
+  font-family: 'Montserrat';
 background-color: $pink-color;
 font-size: 17px;
 cursor: pointer;
@@ -33,14 +33,14 @@ margin-bottom: 30px;
 * {
     box-sizing: border-box;
     color:$white;
-    font-family: 'Poppins';
+    font-family: 'Montserrat';
   }
 
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: black;
+    background-color: $black;
 }
 
 .container {
@@ -286,10 +286,10 @@ swiper-slide img {
 
 .header__search {
   padding: 8px;
-  border: 2px solid black;
+  border: 2px solid $black;
   border-radius: 5px;
   outline: none;
-  color: #000;
+  color: $black;
 }
 
 .header__search::placeholder {
@@ -322,13 +322,13 @@ a {
 }
 
 a:hover {
-  color: rgb(236, 155, 245);
+  color: $pink-color;
 }
 
 .creators {
   text-align: center;
   font-size: 10px;
-  color: rgb(236, 155, 245);
+  color: $pink-color;
 }
 
 @media (max-width:550px) {
@@ -622,7 +622,6 @@ position: relative;
   filter: blur(30px);
 }
 .random-container {
-    height: 360px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -630,7 +629,7 @@ position: relative;
     background: -moz-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
     background: linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(52, 148, 168) 200%);
     background-color: $section-color;
-    margin: 50 auto;
+    margin: 0 auto;
     max-width: 700px;
     height: 380px;
     backdrop-filter: opacity(20%);
