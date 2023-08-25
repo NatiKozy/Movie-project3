@@ -1,3 +1,4 @@
+// import { obj } from "./app";
 //АНЯ НАЧАЛО секция MOVIES
 const FILMS_URL_MOVIES = `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100`;
 const API_KEY_MOVIES = `1CZFK25-MDA4Q4W-MJVMYF9-Q7QZBH1`;
@@ -159,10 +160,9 @@ async function getPremiers() {
             })
         const data = await response.json();
         const premiers = await data.items;
-        console.log(premiers);
         showPremiers(premiers);
     } catch (err) {
-        console.log(err)
+        console.error(err)
     }
 }
 
@@ -228,7 +228,7 @@ async function getMovies(url) {
         const respData = await resp.json();
         return respData;
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 }
 
@@ -280,7 +280,7 @@ let moviesPerPage = 10;
 let modalMoviesData = [];
 
 function openModal() {
-    modalOverlay.style.display = "flex";
+    obj.modalOverlay.style.display = "flex";
     document.body.style.overflow = "hidden";
 }
 
@@ -437,7 +437,7 @@ function checkSelect() {
         getRandomMovie(HORRIRS_URL)
     } else if (selectedValue === "Триллер") {
         getRandomMovie(TRILLERS_URL)
-    } else if (selectedValue === "Фонтастика") {
+    } else if (selectedValue === "Фантастика") {
         getRandomMovie(FANTASY_URL)
     }
 }

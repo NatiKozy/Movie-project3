@@ -125,6 +125,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+// import { obj } from "./app";
 //АНЯ НАЧАЛО секция MOVIES
 var FILMS_URL_MOVIES = "https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100";
 var API_KEY_MOVIES = "1CZFK25-MDA4Q4W-MJVMYF9-Q7QZBH1";
@@ -331,19 +332,18 @@ function _getPremiers() {
           return data.items;
         case 9:
           premiers = _context3.sent;
-          console.log(premiers);
           showPremiers(premiers);
-          _context3.next = 17;
+          _context3.next = 16;
           break;
-        case 14:
-          _context3.prev = 14;
+        case 13:
+          _context3.prev = 13;
           _context3.t0 = _context3["catch"](0);
-          console.log(_context3.t0);
-        case 17:
+          console.error(_context3.t0);
+        case 16:
         case "end":
           return _context3.stop();
       }
-    }, _callee3, null, [[0, 14]]);
+    }, _callee3, null, [[0, 13]]);
   }));
   return _getPremiers.apply(this, arguments);
 }
@@ -443,7 +443,7 @@ function _getMovies() {
         case 10:
           _context4.prev = 10;
           _context4.t0 = _context4["catch"](0);
-          console.log(_context4.t0);
+          console.error(_context4.t0);
         case 13:
         case "end":
           return _context4.stop();
@@ -487,7 +487,7 @@ var currentModalPage = 1;
 var moviesPerPage = 10;
 var modalMoviesData = [];
 function openModal() {
-  modalOverlay.style.display = "flex";
+  obj.modalOverlay.style.display = "flex";
   document.body.style.overflow = "hidden";
 }
 function closeModal() {
@@ -697,7 +697,7 @@ function checkSelect() {
     getRandomMovie(HORRIRS_URL);
   } else if (selectedValue === "Триллер") {
     getRandomMovie(TRILLERS_URL);
-  } else if (selectedValue === "Фонтастика") {
+  } else if (selectedValue === "Фантастика") {
     getRandomMovie(FANTASY_URL);
   }
 }
@@ -885,7 +885,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60506" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59270" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
