@@ -1,30 +1,64 @@
-@charset "UTF-8";
-* {
-  box-sizing: border-box;
-  color: #ffffff;
-  font-family: "Poppins";
+//переменные
+$black: #000000;
+$white: #ffffff;
+$body-color:#020510;
+$genre-color : rgb(153, 150, 150);
+$section-color: #0a031c;
+$pink-color: #FF4D6D;
+$blue-color: #54E1FF;
+$general-color: #263459;
+$general-font: 'Poppins';
+@mixin font-style{
+  font-size: 30px;
 }
 
+@mixin movie-card-style{
+  margin: 10px;
+  position: relative;
+}
+
+@mixin button-general-style{
+  font-family: 'Poppins';
+background-color: $pink-color;
+font-size: 17px;
+cursor: pointer;
+color: white;
+height: 49px;
+width: 150px;
+border-radius: 7px;
+border: 1px solid $pink-color;
+margin-bottom: 30px;
+}
+
+* {
+    box-sizing: border-box;
+    color:$white;
+    font-family: 'Poppins';
+  }
+
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: black;
 }
 
 .container {
-  max-width: 1440px;
-  margin: 0 auto;
+    max-width: 1440px;
+    margin: 0 auto;
+
 }
 
 img {
   max-width: 100%;
 }
 
-.section_title {
+//movies
+
+.section_title{
   margin: 20px 0 20px 70px;
   font-size: 30px;
-  color: #ffffff;
+  color: $white;
 }
 
 .film-cards-gallery {
@@ -32,20 +66,17 @@ img {
   max-width: 1440px;
   padding: 40px 0;
   margin: 0 auto;
-  background-color: #0a031c;
+  background-color: $section-color;
 }
-
-.gallery-wrapper {
+.gallery-wrapper{
   width: 90%;
   margin: 0px auto;
   padding: 20px 0;
   overflow-x: auto;
 }
-
 .gallery-wrapper::-webkit-scrollbar {
   display: none;
 }
-
 .movies-list, .series-list, .cartoon-list {
   display: flex;
   flex-wrap: nowrap;
@@ -53,9 +84,9 @@ img {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
 
-.movies-list__item {
+}
+.movies-list__item{
   align-items: flex-start;
   margin: 0 20px;
   padding: 0;
@@ -64,16 +95,15 @@ img {
   transition: transform 0.4s;
 }
 
-.movies-list__item:hover {
+.movies-list__item:hover{
   transform: scale(105%);
   box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3);
 }
 
-.movies-list__link {
+.movies-list__link{
   display: inline-block;
 }
-
-.movies-list__img {
+.movies-list__img{
   height: 100%;
   border-radius: 12px;
   margin: auto 0;
@@ -82,10 +112,9 @@ img {
 
 .movies-gallery,
 .series-gallery,
-.cartoon-container {
+.cartoon-container{
   position: relative;
 }
-
 .gallery-btn--right, .gallery-btn--left {
   position: absolute;
   top: 250px;
@@ -95,36 +124,33 @@ img {
   height: 48px;
   border-radius: 5px;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgb(0, 0, 0, 0.3);
   border: none;
-}
-.gallery-btn--right img, .gallery-btn--left img {
-  width: 37px;
-  height: 48px;
-}
 
-.gallery-btn--right {
+  img{
+    width: 37px;
+    height: 48px;
+  }
+}
+.gallery-btn--right{
   right: 80px;
 }
-
 .gallery-btn--left {
   left: 80px;
   transform: rotate(180deg);
 }
-
-.gallery-btn--right:hover {
-  background-color: rgba(0, 0, 0, 0.9);
+.gallery-btn--right:hover{
+  background-color: rgb(0, 0, 0, 0.9);
 }
-
-.gallery-btn--left:hover {
-  background-color: rgba(0, 0, 0, 0.9);
+.gallery-btn--left:hover{
+  background-color: rgb(0, 0, 0, 0.9);
 }
-
-.modal-window {
+//модальное окно
+.modal-window{
   display: none;
 }
 
-.modal-window--active {
+.modal-window--active{
   display: inline-block;
   position: absolute;
   left: 10px;
@@ -135,7 +161,7 @@ img {
   position: fixed;
 }
 
-.modal-window__container {
+.modal-window__container{
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -143,9 +169,11 @@ img {
   margin: 0 auto;
   padding: 40px;
   border-radius: 20px;
-  background-color: #000000;
-}
+  background-color:$black;
+  //z-index: 2;
+  //box-shadow: 0px 4px 40px 30px rgb(255, 77, 109, 0.3);
 
+}
 .modal-window__container::after {
   content: "";
   top: -15px;
@@ -153,43 +181,37 @@ img {
   position: absolute;
   height: 105%;
   width: 105%;
-  background: linear-gradient(90deg, #FF4D6D, #54E1FF);
+  background: linear-gradient(90deg, $pink-color, $blue-color);
   z-index: -1;
   filter: blur(40px);
 }
 
-.modal-window__title {
+.modal-window__title{
   margin: 10px 0;
   font-size: 70px;
   font-weight: 900;
 }
-
 .modal-window__year,
 .modal-window__country,
-.modal-window__genres {
+.modal-window__genres{
   margin: 15px 0 0 0;
   font-size: 22px;
 }
-
 .modal-window__img-box {
   min-width: 400px;
+  img{
+    width: 100%;
+    border-radius: 20px;}
 }
-.modal-window__img-box img {
-  width: 100%;
-  border-radius: 20px;
-}
-
-.modal-window__description {
+.modal-window__description{
   margin: 20px 0 0 40px;
 }
-
-.modal-window__text {
+.modal-window__text{
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
 }
-
-.modal-window__btn {
+.modal-window__btn{
   display: inline-block;
   position: absolute;
   top: 25px;
@@ -198,18 +220,17 @@ img {
   height: 35px;
   border: none;
   border-radius: 5px;
-  background-color: rgba(71, 71, 71, 0);
+  background-color: rgba($color: #474747, $alpha: 0);
+  img{
+    width: 30px;
+    height: 30px;
+  }
 }
-.modal-window__btn img {
-  width: 30px;
-  height: 30px;
-}
-
-.search-result {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px auto;
-}
+.search-result{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    }
 
 /* //slider styles// */
 swiper-container {
@@ -230,6 +251,8 @@ swiper-slide img {
   width: 100%;
   border-radius: 20px;
 }
+
+//ЛЕНА
 
 /* header styles */
 .header__container {
@@ -267,10 +290,6 @@ swiper-slide img {
   border-radius: 5px;
   outline: none;
   color: #000;
-}
-
-.header__search::-moz-placeholder {
-  color: #999;
 }
 
 .header__search::placeholder {
@@ -312,22 +331,24 @@ a:hover {
   color: rgb(236, 155, 245);
 }
 
-@media (max-width: 550px) {
+@media (max-width:550px) {
   .header__list {
     font-size: 12px;
   }
+
   .footer__list {
     font-size: 12px;
   }
 }
-/* header end */
-.popular-movies__container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 40px 0;
-  position: relative;
-}
 
+/* header end */
+
+.popular-movies__container{
+max-width: 1440px;
+margin: 0 auto;
+padding: 40px 0;
+position: relative;
+}
 .popular-movies {
   display: flex;
   flex-wrap: wrap;
@@ -341,20 +362,18 @@ a:hover {
   width: 240px;
   margin: 10px;
   position: relative;
-}
 
-.popular-movie:hover {
+}
+.popular-movie:hover{
   transform: scale(105%);
-  box-shadow: 0px 0px 10px 10px #263459;
+  box-shadow: 0px 0px 10px 10px $general-color;
 }
-
 .search-movie_cover-inner,
 .popular-movie__cover-inner {
   position: relative;
   height: 360px;
-  box-shadow: 10px 5px 5px #263459;
+  box-shadow: 10px 5px 5px $general-color;
 }
-
 .search-movie__cover,
 .popular-movie__cover {
   max-width: 100%;
@@ -374,33 +393,29 @@ a:hover {
 }
 
 .popular-movie__cover--darkened:hover {
-  background-color: #0a031c;
+  background-color: $section-color;
   cursor: pointer;
 }
-
 .search-movie__info,
 .popular-movie__info {
   padding: 10px 0px;
   text-align: center;
 }
-
 .search-movie__title,
 .popular-movie__title {
-  font-family: "Poppins";
+  font-family: $general-font;
   text-align: center;
   font-size: 18px;
   color: white;
 }
-
-.search-movie__info {
+.search-movie__info{
   margin-bottom: 20px;
 }
-
 .search-movie__category,
 .popular-movie__category {
-  font-family: "Poppins";
+  font-family: $general-font;
   font-size: 14px;
-  color: rgb(153, 150, 150);
+  color: $genre-color;
   font-style: italic;
   margin-bottom: 3px;
 }
@@ -415,7 +430,7 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0a031c;
+  background-color: $section-color;
   color: white;
   font-size: 14px;
 }
@@ -464,11 +479,10 @@ a:hover {
 
 .modal-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
   margin-bottom: 10px;
 }
-
 .modal-nav {
   display: flex;
   align-items: center;
@@ -478,13 +492,13 @@ a:hover {
 
 .modal-close {
   background-color: transparent;
-  box-shadow: 2px 2px 2px 2px #263459;
+  box-shadow: 2px 2px 2px 2px $general-color;
   border: none;
   border-radius: 3px;
   padding: 5px 10px;
   color: white;
   cursor: pointer;
-  position: absolute;
+  position:absolute;
   top: 10px;
   right: 10px;
 }
@@ -502,51 +516,53 @@ a:hover {
 
 .modal-prev {
   background-color: transparent;
-  box-shadow: 2px 2px 2px 2px #263459;
+  box-shadow: 2px 2px 2px 2px $general-color
 }
 
 .modal-next {
   background-color: transparent;
-  box-shadow: 2px 2px 2px 2px #263459;
+  box-shadow: 2px 2px 2px 2px $general-color
 }
 
 .modal-prev:hover,
 .modal-next:hover,
 .modal-close:hover {
-  background-color: #263459;
+  background-color: $general-color;
   transform: scale(1.05);
 }
 
+//  STYLES ЮЛЯ
+
 .movie__cover-inner {
-  position: relative;
-  height: 233px;
-  box-shadow: 10px 5px 5px rgb(15, 15, 15);
+    position: relative;
+    height: 233px;
+    box-shadow: 10px 5px 5px rgb(15, 15, 15);
 }
 
 .movie__cover {
-  max-width: 100%;
-  height: 100%;
+    max-width: 100%;
+    height: 100%;
 }
 
 .movie__cover--darkened {
-  background-color: #000000;
-  opacity: 0.1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  max-width: 100%;
-  height: 100%;
-  z-index: 1;
+    background-color: #000000;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
 .movie__cover--darkened:hover {
-  background-color: #0a031c;
-  cursor: pointer;
+    background-color: $section-color;
+    cursor: pointer;
 }
 
 .movie__info {
-  padding: 10px 0px;
+    padding: 10px 0px;
 }
 
 .movie__title {
@@ -555,184 +571,175 @@ a:hover {
 }
 
 .movie__category {
-  font-size: 14px;
-  font-family: "Poppins";
-  color: rgb(153, 150, 150);
+    font-size: 14px;
+    font-family: 'Poppins';
+    color: $genre-color;
 }
 
 .movie__average {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 0;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1a191f;
-  color: #ffffff;
-  font-size: 14px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 0;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a191f;
+    color: #ffffff;
+    font-size: 14px;
 }
 
 .movie__average--green {
-  border: 1px solid green;
+    border: 1px solid green;
 }
 
 .movie__average--orange {
-  border: 1px solid orange;
+    border: 1px solid orange;
 }
 
 .movie__average--red {
-  border: 1px solid red;
+    border: 1px solid red;
 }
 
 /* RANDOM_FILM RART */
-.random {
+
+.random{
   position: relative;
 }
 
 .random::after {
   content: "";
-  top: 0%;
+  top: -0%;
   left: 24%;
   position: absolute;
   height: 100%;
   width: 53%;
-  background: linear-gradient(90deg, #FF4D6D, #54E1FF);
+  background: linear-gradient(90deg, $pink-color, $blue-color);
   z-index: -1;
   filter: blur(30px);
 }
-
 .random-container {
-  height: 360px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background: linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(52, 148, 168) 200%);
-  background-color: #0a031c;
-  margin: 50 auto;
-  max-width: 700px;
-  height: 380px;
-  -webkit-backdrop-filter: opacity(20%);
-          backdrop-filter: opacity(20%);
-  box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
-  -webkit-box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
-  -moz-box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
-  z-index: 99;
-  border-radius: 17px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: -webkit-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
+    background: -moz-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
+    background: linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(52, 148, 168) 200%);
+    background-color: $section-color;
+    margin: 50 auto;
+    max-width: 700px;
+    height: 380px;
+    backdrop-filter: opacity(20%);
+    box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
+    -webkit-box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
+    -moz-box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
+    z-index: 99;
+    border-radius: 17px;
 }
 
 .random__left-part {
-  align-items: center;
+    align-items: center;
 }
 
 .random-basic-img {
-  width: 50px;
-  height: 50px;
+    width: 50px;
+    height: 50px;
 }
 
 .random__movie {
   width: 160px;
-  margin: 10px;
-  position: relative;
+  @include movie-card-style()
 }
-
-.random__title {
+.random__title{
   width: 250px;
   margin-bottom: 50px;
-  font-size: 30px;
+  @include font-style();
 }
 
-.random-select {
-  font-family: "Poppins";
+.random-select{
+  font-family: 'Poppins';
   width: 170px;
   height: 45px;
   border: 1px solid rgb(161, 158, 158);
   font-size: 17px;
-  color: #ffffff;
-  background-color: #454b65;
-  text-align: center;
-  margin-bottom: 3px;
-  border-radius: 7px;
+color: $white;
+background-color: #454b65;
+text-align: center;
+margin-bottom: 3px;
+border-radius: 7px;
 }
-
 .movies {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .random-basic-img {
-  animation: 1s linear 0s normal none infinite running rot;
-  -webkit-animation: 1s linear 0s normal none infinite running rot;
-  width: 125px;
-  height: 125px;
+    animation: 1s linear 0s normal none infinite running rot;
+    -webkit-animation: 1s linear 0s normal none infinite running rot;
+    width: 125px;
+    height: 125px;
+
 }
 
 @keyframes rot {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
+
+@-webkit-keyframes rot {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 /* RANDOM_FILM RART END */
-.top-250-films {
-  background-color: #0a031c;
+
+// TOP 250 FILMS
+
+.top-250-films{
+  background-color: $section-color;
   margin: auto;
   text-align: center;
 }
-
-.top-250-films__title {
+.top-250-films__title{
   padding-top: 30px;
-  font-style: "Poppins";
+  font-style: $general-font;
 }
-
-.top-250-films__boxes {
-  margin: auto;
+.top-250-films__boxes{
+  margin:  auto;
   max-width: 1350px;
   display: flex;
   flex-wrap: wrap;
 }
 
-.top-250-films__button-hide {
+.top-250-films__button-hide{
   display: none;
   text-align: center;
-  font-family: "Poppins";
-  background-color: #FF4D6D;
-  font-size: 17px;
-  cursor: pointer;
-  color: white;
-  height: 49px;
-  width: 150px;
-  border-radius: 7px;
-  border: 1px solid #FF4D6D;
-  margin-bottom: 30px;
+  @include button-general-style()
 }
-
-.top-buttons {
+.top-buttons{
   display: flex;
   justify-content: center;
 }
-
-.top-250-films__button {
+.top-250-films__button{
   text-align: center;
-  font-family: "Poppins";
-  background-color: #FF4D6D;
-  font-size: 17px;
-  cursor: pointer;
-  color: white;
-  height: 49px;
-  width: 150px;
-  border-radius: 7px;
-  border: 1px solid #FF4D6D;
-  margin-bottom: 30px;
+  @include button-general-style();
   margin-right: 15px;
 }
-
 .top-250-films__box,
 .top-250-films__box-two {
   display: flex;
@@ -746,16 +753,14 @@ a:hover {
   margin: 10px;
   position: relative;
 }
-
-.top-movie:hover {
+.top-movie:hover{
   transform: scale(105%);
-  box-shadow: 0px 0px 10px 10px #263459;
+  box-shadow: 0px 0px 10px 10px $general-color;
 }
-
 .top-movie__cover-inner {
   position: relative;
   height: 360px;
-  box-shadow: 10px 5px 5px #263459;
+  box-shadow: 10px 5px 5px $general-color;
 }
 
 .top-movie__cover {
@@ -776,7 +781,7 @@ a:hover {
 }
 
 .top-movie__cover--darkened:hover {
-  background-color: #263459;
+  background-color: $general-color;
   cursor: pointer;
 }
 
@@ -785,15 +790,15 @@ a:hover {
 }
 
 .top-movie__title {
-  font-family: "Poppins";
+  font-family: $general-font;
   font-size: 18px;
   color: white;
 }
 
 .top-movie__category {
-  font-family: "Poppins";
+  font-family: $general-font;
   font-size: 14px;
-  color: rgb(153, 150, 150);
+  color: $genre-color;
   font-style: italic;
   margin-bottom: 3px;
 }
@@ -808,11 +813,10 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0a031c;
+  background-color: $section-color;
   color: white;
   font-size: 14px;
 }
-
 .top-movie__average--green {
   border: 1px solid green;
 }
@@ -833,7 +837,7 @@ a:hover {
   bottom: 0;
   overflow: hidden;
   /* фоновый цвет */
-  background: #0a031c;
+  background: $section-color;
   z-index: 1001;
 }
 
@@ -854,6 +858,7 @@ a:hover {
     transform: rotate(360deg);
   }
 }
+
 .loaded_hiding .preloader {
   transition: 0.3s opacity;
   opacity: 0;
@@ -863,12 +868,16 @@ a:hover {
   display: none;
 }
 
+
+
 .img {
   display: inline-block;
   padding-left: 100%;
+  -webkit-animation: scroll 5s infinite linear;
+  -moz-animation: scroll 5s infinite linear;
   animation: scroll 5s infinite linear;
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Hopetoun_falls.jpg/220px-Hopetoun_falls.jpg);
   width: 220px;
   height: 147px;
   margin-left: -5px;
-}/*# sourceMappingURL=style.css.map */
+}
