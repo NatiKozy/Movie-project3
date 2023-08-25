@@ -32,7 +32,7 @@
 
 ### _Link_
 
-[Website of movie-project]( https://natikozy.github.io/Movie-project/) Here you can try the website functionality
+[Website of movie-project]( https://natikozy.github.io/Movie-project3/) Here you can try the website functionality
 
 ---
 
