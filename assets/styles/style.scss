@@ -53,6 +53,7 @@ img {
   max-width: 100%;
 }
 
+
 //movies
 
 .section_title{
@@ -170,9 +171,6 @@ img {
   padding: 40px;
   border-radius: 20px;
   background-color:$black;
-  //z-index: 2;
-  //box-shadow: 0px 4px 40px 30px rgb(255, 77, 109, 0.3);
-
 }
 .modal-window__container::after {
   content: "";
@@ -198,12 +196,13 @@ img {
   font-size: 22px;
 }
 .modal-window__img-box {
-  min-width: 400px;
+  min-width: 40%;
   img{
     width: 100%;
     border-radius: 20px;}
 }
 .modal-window__description{
+  width: 60%;
   margin: 20px 0 0 40px;
 }
 .modal-window__text{
@@ -224,6 +223,42 @@ img {
   img{
     width: 30px;
     height: 30px;
+  }
+}
+@media screen and (max-width: 1043px) and (min-width: 768px){
+  .modal-window__title{
+    font-size: 50px;
+  }
+  .modal-window__text {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .modal-window__description{
+    width: 100%;
+    margin-left: 20px;
+  }
+  .modal-window__text{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px){
+  .modal-window__container{
+    flex-direction: column;
+  }
+  .modal-window__img-box{
+    width: 100%;
+  }
+  .modal-window__description{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .modal-window__title{
+    font-size: 50px;
+  }
+  .modal-window__text{
+    width: 100%;
+    font-size: 16px;
   }
 }
 .search-result{
