@@ -308,18 +308,28 @@ function checmoviekType(array) {
   try {
     for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
       var item = _step2.value;
-      if (item.type === "movie") {
-        var movies = [];
-        movies.push(item);
-        showMoviesCards(_app.movieslist, movies);
-      } else if (item.type === "tv-series") {
-        var series = [];
-        series.push(item);
-        showMoviesCards(_app.seriesList, series);
-      } else if (item.type === 'cartoon') {
-        var cartoons = [];
-        cartoons.push(item);
-        showMoviesCards(_app.cartoonList, cartoons);
+      switch (item.type) {
+        case "movie":
+          {
+            var movies = [];
+            movies.push(item);
+            showMoviesCards(_app.movieslist, movies);
+            break;
+          }
+        case "tv-series":
+          {
+            var series = [];
+            series.push(item);
+            showMoviesCards(_app.seriesList, series);
+            break;
+          }
+        case "cartoon":
+          {
+            var cartoons = [];
+            cartoons.push(item);
+            showMoviesCards(_app.cartoonList, cartoons);
+            break;
+          }
       }
     }
   } catch (err) {
@@ -941,7 +951,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53415" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59912" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
