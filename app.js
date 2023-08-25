@@ -1,4 +1,3 @@
-
 export const FILMS_URL_MOVIES = `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100`;
 export const API_KEY_MOVIES = `1CZFK25-MDA4Q4W-MJVMYF9-Q7QZBH1`;
 export const movieslist = document.querySelector('.movies-list');

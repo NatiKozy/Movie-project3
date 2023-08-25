@@ -308,6 +308,19 @@ function checmoviekType(array) {
   try {
     for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
       var item = _step2.value;
+      // if (item.type === "movie") {
+      //     const movies = [];
+      //     movies.push(item);
+      //     showMoviesCards(movieslist, movies)
+      // } else if (item.type === "tv-series") {
+      //     const series = [];
+      //     series.push(item);
+      //     showMoviesCards(seriesList, series)
+      // } else if (item.type === 'cartoon') {
+      //     const cartoons = [];
+      //     cartoons.push(item);
+      //     showMoviesCards(cartoonList, cartoons)
+      // }
       switch (item.type) {
         case "movie":
           {
@@ -951,7 +964,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49215" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50808" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

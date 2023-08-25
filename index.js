@@ -1,4 +1,5 @@
  import { FILMS_URL_MOVIES, API_KEY_MOVIES, movieslist, seriesList, cartoonList } from "./app";
+ 
 //АНЯ НАЧАЛО секция MOVIES
 async function getFilms() {
     try {
@@ -39,6 +40,19 @@ function showMoviesCards(parent, array) {
 
 function checmoviekType(array) {
     for (let item of array) {
+        // if (item.type === "movie") {
+        //     const movies = [];
+        //     movies.push(item);
+        //     showMoviesCards(movieslist, movies)
+        // } else if (item.type === "tv-series") {
+        //     const series = [];
+        //     series.push(item);
+        //     showMoviesCards(seriesList, series)
+        // } else if (item.type === 'cartoon') {
+        //     const cartoons = [];
+        //     cartoons.push(item);
+        //     showMoviesCards(cartoonList, cartoons)
+        // }
         switch (item.type) {
             case "movie": {
                 const movies = [];
