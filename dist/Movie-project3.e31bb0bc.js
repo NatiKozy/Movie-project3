@@ -233,7 +233,6 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-//АНЯ НАЧАЛО секция MOVIES
 function getFilms() {
   return _getFilms.apply(this, arguments);
 }
@@ -285,7 +284,7 @@ function createMovieCard(parent, image, alt, year, country, genres, text) {
     event.preventDefault;
     showMovieModalWindow(image, alt, year, country, genres, text);
   });
-  item.innerHTML = "<img class=\"movies-list__img\" src=\"".concat(image, "\" alt=\"").concat(alt, "\">");
+  item.insertAdjacentHTML("afterbegin", "<img class=\"movies-list__img\" src=\"".concat(image, "\" alt=\"").concat(alt, "\">"));
   parent.append(item);
 }
 function showMoviesCards(parent, array) {
@@ -338,9 +337,6 @@ function checmoviekType(array) {
     _iterator2.f();
   }
 }
-
-//галерея ()
-
 document.addEventListener("DOMContentLoaded", function () {
   _app.moviesBtnRight.addEventListener('click', function () {
     _app.moviesWrapper.scrollLeft += 200;
@@ -391,8 +387,6 @@ _app.modalWindowBtn.addEventListener('click', function (event) {
   _app.modalWindowSection.classList.remove('modal-window--active');
 });
 getFilms();
-
-//АНЯ КОНЕЦ
 
 //НАТАША НАЧАЛО
 
@@ -957,7 +951,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54620" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "26557" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
