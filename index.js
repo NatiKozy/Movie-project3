@@ -40,19 +40,6 @@ function showMoviesCards(parent, array) {
 
 function checmoviekType(array) {
     for (let item of array) {
-        // if (item.type === "movie") {
-        //     const movies = [];
-        //     movies.push(item);
-        //     showMoviesCards(movieslist, movies)
-        // } else if (item.type === "tv-series") {
-        //     const series = [];
-        //     series.push(item);
-        //     showMoviesCards(seriesList, series)
-        // } else if (item.type === 'cartoon') {
-        //     const cartoons = [];
-        //     cartoons.push(item);
-        //     showMoviesCards(cartoonList, cartoons)
-        // }
         switch (item.type) {
             case "movie": {
                 const movies = [];
@@ -398,18 +385,25 @@ function showRandomMovie(movie) {
 function checkSelect() {
     const selectedValue = document.getElementById("select-list").value;
 
-    if (selectedValue === "Драма") {
-        getRandomMovie(DRAMAS_URL)
-    } else if (selectedValue === "Комедия") {
-        getRandomMovie(COMEDIES_URL)
-    } else if (selectedValue === "Ужасы") {
-        getRandomMovie(HORRIRS_URL)
-    } else if (selectedValue === "Триллер") {
-        getRandomMovie(TRILLERS_URL)
-    } else if (selectedValue === "Фантастика") {
-        getRandomMovie(FANTASY_URL)
+    switch (selectedValue) {
+        case "Драма":
+            getRandomMovie(DRAMAS_URL);
+            break;
+        case "Комедия":
+            getRandomMovie(COMEDIES_URL);
+            break; 
+        case "Ужасы":
+            getRandomMovie(HORRIRS_URL);
+            break;
+        case "Триллер":
+            getRandomMovie(TRILLERS_URL);
+            break;
+        case "Фантастика":
+            getRandomMovie(FANTASY_URL);
+            break;      
     }
 }
+
 import {randomForm} from "./app";
 
 randomForm.addEventListener('change', (e) => {
