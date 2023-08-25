@@ -117,58 +117,112 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-  return bundleURL;
-}
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-  return '/';
-}
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-    cssTimeout = null;
-  }, 50);
-}
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})({"app.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.seriesWrapper = exports.seriesList = exports.seriesBtnRight = exports.seriesBtnLeft = exports.searchResultsEl = exports.search = exports.randomForm = exports.premiereSlider = exports.movieslist = exports.moviesWrapper = exports.moviesRandomEl = exports.moviesElem = exports.moviesBtnRight = exports.moviesBtnLeft = exports.modalWindowYear = exports.modalWindowTitle = exports.modalWindowText = exports.modalWindowSection = exports.modalWindowImage = exports.modalWindowGenres = exports.modalWindowCountry = exports.modalWindowBtn = exports.modalPrevBtn = exports.modalOverlay = exports.modalNextBtn = exports.modalCloseBtn = exports.loadingDiv = exports.form = exports.cartoonWrapper = exports.cartoonList = exports.cartoonBtnRight = exports.cartoonBtnLeft = exports.boxes = exports.TRILLERS_URL = exports.TOP_FILMS_URL = exports.TOP_FILMS_PAGE_URL = exports.RANDOM_API_KEY = exports.PREMIERS_URL = exports.PREMIERS_API_KEY = exports.HORRIRS_URL = exports.FILMS_URL_MOVIES = exports.FILMSS_URL = exports.FANTASY_URL = exports.DRAMAS_URL = exports.COMEDIES_URL = exports.API_URL_SEARCH = exports.API_URL_POPULAR = exports.API_KEY_POPULAR = exports.API_KEY_MOVIES = void 0;
+var FILMS_URL_MOVIES = "https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100";
+exports.FILMS_URL_MOVIES = FILMS_URL_MOVIES;
+var API_KEY_MOVIES = "1CZFK25-MDA4Q4W-MJVMYF9-Q7QZBH1";
+exports.API_KEY_MOVIES = API_KEY_MOVIES;
+var movieslist = document.querySelector('.movies-list');
+exports.movieslist = movieslist;
+var seriesList = document.querySelector('.series-list');
+exports.seriesList = seriesList;
+var cartoonList = document.querySelector('.cartoon-list');
+exports.cartoonList = cartoonList;
+var moviesBtnLeft = document.getElementById('movie-btn--left');
+exports.moviesBtnLeft = moviesBtnLeft;
+var moviesBtnRight = document.getElementById('movie-btn--right');
+exports.moviesBtnRight = moviesBtnRight;
+var moviesWrapper = document.getElementById('movies-wrapper');
+exports.moviesWrapper = moviesWrapper;
+var seriesBtnLeft = document.getElementById('series-btn--left');
+exports.seriesBtnLeft = seriesBtnLeft;
+var seriesBtnRight = document.getElementById('series-btn--right');
+exports.seriesBtnRight = seriesBtnRight;
+var seriesWrapper = document.getElementById('series-wrapper');
+exports.seriesWrapper = seriesWrapper;
+var cartoonBtnLeft = document.getElementById('cartoon-btn--left');
+exports.cartoonBtnLeft = cartoonBtnLeft;
+var cartoonBtnRight = document.getElementById('cartoon-btn--right');
+exports.cartoonBtnRight = cartoonBtnRight;
+var cartoonWrapper = document.getElementById('cartoon-wrapper');
+exports.cartoonWrapper = cartoonWrapper;
+var modalWindowSection = document.querySelector('.modal-window');
+exports.modalWindowSection = modalWindowSection;
+var modalWindowTitle = document.querySelector('.modal-window__title');
+exports.modalWindowTitle = modalWindowTitle;
+var modalWindowImage = document.querySelector('.modal-window__img');
+exports.modalWindowImage = modalWindowImage;
+var modalWindowYear = document.querySelector('.modal-window__year');
+exports.modalWindowYear = modalWindowYear;
+var modalWindowCountry = document.querySelector('.modal-window__country');
+exports.modalWindowCountry = modalWindowCountry;
+var modalWindowGenres = document.querySelector('.modal-window__genres');
+exports.modalWindowGenres = modalWindowGenres;
+var modalWindowText = document.querySelector('.modal-window__text');
+exports.modalWindowText = modalWindowText;
+var modalWindowBtn = document.querySelector('.modal-window__btn');
+exports.modalWindowBtn = modalWindowBtn;
+var PREMIERS_API_KEY = "3b609fe2-8b25-48b7-b53e-bf8800018895";
+exports.PREMIERS_API_KEY = PREMIERS_API_KEY;
+var PREMIERS_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST";
+exports.PREMIERS_URL = PREMIERS_URL;
+var premiereSlider = document.querySelector('.mySwiper');
+exports.premiereSlider = premiereSlider;
+var FILMSS_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films";
+exports.FILMSS_URL = FILMSS_URL;
+var API_KEY_POPULAR = "3b609fe2-8b25-48b7-b53e-bf8800018895";
+exports.API_KEY_POPULAR = API_KEY_POPULAR;
+var API_URL_POPULAR = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1";
+exports.API_URL_POPULAR = API_URL_POPULAR;
+var API_URL_SEARCH = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
+exports.API_URL_SEARCH = API_URL_SEARCH;
+var moviesElem = document.querySelector(".popular-movies");
+exports.moviesElem = moviesElem;
+var searchResultsEl = document.querySelector(".search-movies");
+exports.searchResultsEl = searchResultsEl;
+var form = document.querySelector("form");
+exports.form = form;
+var search = document.querySelector(".header__search");
+exports.search = search;
+var modalOverlay = document.getElementById("modalOverlay");
+exports.modalOverlay = modalOverlay;
+var modalCloseBtn = document.getElementById("modalCloseBtn");
+exports.modalCloseBtn = modalCloseBtn;
+var modalPrevBtn = document.getElementById("modalPrevBtn");
+exports.modalPrevBtn = modalPrevBtn;
+var modalNextBtn = document.getElementById("modalNextBtn");
+exports.modalNextBtn = modalNextBtn;
+var TOP_FILMS_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=";
+exports.TOP_FILMS_URL = TOP_FILMS_URL;
+var TOP_FILMS_PAGE_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=";
+exports.TOP_FILMS_PAGE_URL = TOP_FILMS_PAGE_URL;
+var TRILLERS_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=1&type=FILM";
+exports.TRILLERS_URL = TRILLERS_URL;
+var DRAMAS_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=2&type=FILM";
+exports.DRAMAS_URL = DRAMAS_URL;
+var FANTASY_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6&type=FILM";
+exports.FANTASY_URL = FANTASY_URL;
+var COMEDIES_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&type=FILM";
+exports.COMEDIES_URL = COMEDIES_URL;
+var HORRIRS_URL = "https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=17&type=FILM";
+exports.HORRIRS_URL = HORRIRS_URL;
+var RANDOM_API_KEY = "23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436";
+exports.RANDOM_API_KEY = RANDOM_API_KEY;
+var moviesRandomEl = document.querySelector(".random-movies");
+exports.moviesRandomEl = moviesRandomEl;
+var randomForm = document.querySelector('.random-form');
+exports.randomForm = randomForm;
+var boxes = document.querySelector('.top-250-films__boxes');
+exports.boxes = boxes;
+var loadingDiv = document.querySelector('.loader');
+exports.loadingDiv = loadingDiv;
+},{}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -337,5 +391,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/normalize.bf31ba5f.js.map
+},{}]},{},["../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
+//# sourceMappingURL=/app.c328ef1a.js.map
