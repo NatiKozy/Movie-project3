@@ -21,6 +21,10 @@ img {
   max-width: 100%;
 }
 
+main {
+  margin-top: 30px;
+}
+
 .section_title {
   margin: 20px 0 20px 70px;
   font-size: 30px;
@@ -259,7 +263,7 @@ swiper-container {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 swiper-slide {
@@ -355,6 +359,15 @@ a:hover {
   color: #FF4D6D;
 }
 
+@media (max-width: 850px) {
+  .header__right-part {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
 @media (max-width: 550px) {
   .header__list {
     font-size: 12px;

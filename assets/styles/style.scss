@@ -53,6 +53,10 @@ img {
   max-width: 100%;
 }
 
+main{
+  margin-top: 30px;
+}
+
 
 //movies
 
@@ -278,7 +282,7 @@ swiper-container {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 swiper-slide {
@@ -372,6 +376,16 @@ a:hover {
   color: $pink-color;
 }
 
+@media (max-width:850px) {
+  .header__right-part{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
+
 @media (max-width:550px) {
   .header__list {
     font-size: 12px;
@@ -385,10 +399,10 @@ a:hover {
 /* header end */
 
 .popular-movies__container{
-max-width: 1440px;
-margin: 0 auto;
-padding: 40px 0;
-position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 0;
+  position: relative;
 }
 .popular-movies {
   display: flex;
