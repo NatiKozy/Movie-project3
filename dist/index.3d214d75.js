@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"2UeK4":[function(require,module,exports) {
+})({"4H3pI":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -1005,6 +1005,6 @@ window.onload = function() {
 } //ЮЛЯ КОНЕЦ
 ;
 
-},{"./app":"igcvL"}]},["2UeK4","bB7Pu"], "bB7Pu", "parcelRequire0a4d")
+},{"./app":"igcvL"}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire0a4d")
 
 //# sourceMappingURL=index.3d214d75.js.map
