@@ -736,15 +736,18 @@ function displayMovies(data, container) {
         const movieEl = document.createElement("div");
         movieEl.classList.add("popular-movie");
         movieEl.innerHTML = `
-                <div class="popular-movie__cover-inner">
-                    <img src="${movie.posterUrlPreview}" class="popular-movie__cover" alt="${movie.nameRu}" />
-                    <div class="popular-movie__cover--darkened"></div>
-                </div>
-                <div class="popular-movie__info">
-                    <div class="popular-movie__title">${movie.nameRu}</div>
-                    <div class="popular-movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
-                    <div class="popular-movie__average popular-movie__average--${getClassOfRate(movie.rating)}">${movie.rating}</div>
-                </div>`;
+               <div class="popular-movie__cover-inner">
+                   <img src="${movie.posterUrlPreview}" class="popular-movie__cover" alt="${movie.nameRu}" />
+                   <div class="popular-movie__cover--darkened"></div>
+               </div>
+               <div class="popular-movie__info">
+                   <div class="popular-movie__title">${movie.nameRu}</div>
+                   <div class="popular-movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
+                   <div class="popular-movie__average popular-movie__average--${getClassOfRate(movie.rating)}">${movie.rating}</div>
+               </div>`;
+        movieEl.addEventListener("click", ()=>{
+            showMovieModalWindow(movie.posterUrlPreview, movie.nameRu, movie.year, movie.countries.map((country)=>country.country), movie.genres.map((genre)=>genre.genre), "Описание отсутствует");
+        });
         container.appendChild(movieEl);
     });
     else {
@@ -795,13 +798,13 @@ async function displayMoviesInModal() {
         const movieEl = document.createElement("div");
         movieEl.classList.add("search-movie");
         movieEl.innerHTML = `
-              <div class="search-movie__cover-inner">
-                <img src="${movieData.posterUrlPreview}" class="search-movie_cover" alt="${movieData.nameRu}" />
-              </div>
-              <div class="search-movie__info">
-                <div class="search-movie__title">${movieData.nameRu}</div>
-                <div class="search-movie__category">${movieData.genres.map((genre)=>` ${genre.genre}`)}</div>
-              </div>`;
+             <div class="search-movie__cover-inner">
+               <img src="${movieData.posterUrlPreview}" class="search-movie_cover" alt="${movieData.nameRu}" />
+             </div>
+             <div class="search-movie__info">
+               <div class="search-movie__title">${movieData.nameRu}</div>
+               <div class="search-movie__category">${movieData.genres.map((genre)=>` ${genre.genre}`)}</div>
+             </div>`;
         modalMoviesContainer.appendChild(movieEl);
     });
 }
