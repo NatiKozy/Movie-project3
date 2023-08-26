@@ -29,14 +29,12 @@ export const PREMIERS_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
 export const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST`;
 export const premiereSlider = document.querySelector('.mySwiper');
 
-// export const FILMSS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
 export const API_KEY_POPULAR = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
 export const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
 export const API_URL_SEARCH = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
 
 export const moviesElem = document.querySelector(".popular-movies");
 
-// export const searchResultsEl = document.querySelector(".search-movie");
 export const form = document.querySelector("form");
 
 export const search = document.querySelector(".header__search");

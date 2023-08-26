@@ -199,12 +199,10 @@
 
  //ЛЕНА НАЧАЛО
  import {
-     FILMSS_URL,
      API_KEY_POPULAR,
      API_URL_POPULAR,
      API_URL_SEARCH,
      moviesElem,
-     searchResultsEl,
      form
  } from "./app";
 
