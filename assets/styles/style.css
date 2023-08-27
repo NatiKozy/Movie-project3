@@ -404,7 +404,7 @@ a:hover {
     transform: rotate(90deg);
   }
   #menu__toggle:checked ~ .menu__box {
-    left: 0 !important;
+    left: 0;
   }
   .menu__btn {
     position: fixed;
@@ -422,7 +422,7 @@ a:hover {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #444242;
+    background-color: #FF4D6D;
     transition-duration: 0.25s;
   }
   .menu__btn > span::before {
@@ -438,12 +438,12 @@ a:hover {
     position: fixed;
     top: 0px;
     left: -100%;
-    width: 400px;
+    width: 150px;
     height: 100%;
     margin: 0;
     padding: 80px 0;
     list-style: none;
-    background-color: #858687;
+    background-color: #0a031c;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
     transition-duration: 0.25s;
     z-index: 10;
@@ -451,7 +451,7 @@ a:hover {
   .menu__item {
     display: block;
     padding: 12px 24px;
-    color: rgb(68, 66, 66);
+    color: #FF4D6D;
     font-family: "Montserrat", serif;
     font-size: 28px;
     font-weight: 400;
@@ -461,7 +461,7 @@ a:hover {
     z-index: 9;
   }
   .menu__item:hover {
-    background-color: #f4f4f4;
+    background-color: #263459;
   }
   .burger-link {
     margin-left: 45%;
