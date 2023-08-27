@@ -755,6 +755,27 @@ img.rot {
     transform: rotate(360deg);
   }
 }
+
+@media  (max-width: 550px) {
+  .random__title{
+    font-size: 22px;
+    max-width: 100px;
+  }
+  .random-select{
+    width: 115px;
+    height: 45px;
+    border: 1px solid rgb(161, 158, 158);
+    font-size: 17px;
+  color: $white;
+  background-color: #454b65;
+  text-align: center;
+  margin-bottom: 3px;
+  border-radius: 7px;
+  }
+  .random__movie {
+    width: 120px;
+  }
+}
 /* RANDOM_FILM RART END */
 
 // TOP 250 FILMS
