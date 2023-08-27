@@ -390,7 +390,7 @@ a:hover {
 
 .popular-movie {
   width: 240px;
-  margin: 10px;
+  margin: 10px 10px 30px;
   position: relative;
 }
 
@@ -709,6 +709,29 @@ img.rot {
   }
 }
 
+@media (width <= 550px) {
+  .random__title {
+    max-width: 100px;
+    font-size: 22px;
+  }
+
+  .random-select {
+    color: #fff;
+    text-align: center;
+    background-color: #454b65;
+    border: 1px solid #a19e9e;
+    border-radius: 7px;
+    width: 115px;
+    height: 45px;
+    margin-bottom: 3px;
+    font-size: 17px;
+  }
+
+  .random__movie {
+    width: 120px;
+  }
+}
+
 .top-250-films {
   text-align: center;
   background-color: #0a031c;
@@ -771,7 +794,7 @@ img.rot {
 
 .top-movie {
   width: 240px;
-  margin: 10px;
+  margin: 10px 10px 30px;
   position: relative;
 }
 
