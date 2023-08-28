@@ -30,6 +30,17 @@ border: 1px solid $pink-color;
 margin-bottom: 30px;
 }
 
+.modal-content::-webkit-scrollbar {
+  background-color: $black;
+  width: 20px;
+}
+.modal-content::-webkit-scrollbar-thumb{
+  background-color: $general-color;
+}
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #45577d;
+}
+
 * {
     box-sizing: border-box;
     color:$white;
