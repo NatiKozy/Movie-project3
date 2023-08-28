@@ -598,7 +598,8 @@ a:hover {
   text-align: center;
 }
 .search-movie__title,
-.popular-movie__title {
+.popular-movie__title,
+.section_title {
   font-family: $general-font;
   text-align: center;
   font-size: 18px;
@@ -1002,6 +1003,7 @@ img.rot {
 
 .top-movie__title {
   font-family: $general-font;
+  text-align: center;
   font-size: 18px;
   color: white;
 }

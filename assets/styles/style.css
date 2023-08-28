@@ -565,7 +565,8 @@ a:hover {
 }
 
 .search-movie__title,
-.popular-movie__title {
+.popular-movie__title,
+.section_title {
   font-family: "Montserrat";
   text-align: center;
   font-size: 18px;
@@ -986,6 +987,7 @@ img.rot {
 
 .top-movie__title {
   font-family: "Montserrat";
+  text-align: center;
   font-size: 18px;
   color: white;
 }
