@@ -1,10 +1,52 @@
  import {
-     FILMS_URL_MOVIES,
-     API_KEY_MOVIES,
-     movieslist,
-     seriesList,
-     cartoonList
- } from "./app";
+    FILMS_URL_MOVIES,
+    API_KEY_MOVIES,
+    movieslist,
+    seriesList,
+    cartoonList,
+    moviesBtnLeft,
+    moviesBtnRight,
+    moviesWrapper,
+    seriesBtnLeft,
+    seriesBtnRight,
+    seriesWrapper,
+    cartoonBtnLeft,
+    cartoonBtnRight,
+    cartoonWrapper,
+    modalWindowSection,
+    modalWindowTitle,
+    modalWindowImage,
+    modalWindowYear,
+    modalWindowCountry,
+    modalWindowGenres,
+    modalWindowText,
+    modalWindowBtn,
+    PREMIERS_URL,
+    PREMIERS_API_KEY,
+    premiereSlider,
+    modalOverlay,
+    modalCloseBtn,
+    modalPrevBtn,
+    modalNextBtn,
+    API_KEY_POPULAR,
+    API_URL_POPULAR,
+    API_URL_SEARCH,
+    moviesElem,
+    form,
+    search,
+    TOP_FILMS_URL,
+    TOP_FILMS_PAGE_URL,
+    TRILLERS_URL,
+    DRAMAS_URL,
+    FANTASY_URL,
+    COMEDIES_URL,
+    HORRIRS_URL,
+    RANDOM_API_KEY,
+    moviesRandomEl,
+    boxes,
+    loadingDiv
+} from "./app";
+
 
  async function getFilms() {
      try {
@@ -68,18 +110,6 @@
      }
  }
 
- import {
-     moviesBtnLeft,
-     moviesBtnRight,
-     moviesWrapper,
-     seriesBtnLeft,
-     seriesBtnRight,
-     seriesWrapper,
-     cartoonBtnLeft,
-     cartoonBtnRight,
-     cartoonWrapper
- } from "./app";
-
  document.addEventListener(
      "DOMContentLoaded",
      function () {
@@ -104,18 +134,6 @@
      },
      false,
  );
-
-
- import {
-     modalWindowSection,
-     modalWindowTitle,
-     modalWindowImage,
-     modalWindowYear,
-     modalWindowCountry,
-     modalWindowGenres,
-     modalWindowText,
-     modalWindowBtn
- } from "./app";
 
  function showMovieModalWindow(image, alt, year, country, genres, text) {
      modalWindowSection.classList.add('modal-window--active');
@@ -146,11 +164,6 @@
  //НАТАША НАЧАЛО
 
  //slider realization//
- import {
-     PREMIERS_URL,
-     PREMIERS_API_KEY
- } from "./app";
-
  async function getPremiers() {
      try {
          const response = await fetch(PREMIERS_URL,
@@ -169,10 +182,6 @@
          console.error(err)
      }
  }
-
- import {
-     premiereSlider
- } from "./app";
 
  function showPremiers(array) {
      for (let item of array) {
@@ -198,13 +207,6 @@
  //НАТАША КОНЕЦ
 
  //ЛЕНА НАЧАЛО
- import {
-     API_KEY_POPULAR,
-     API_URL_POPULAR,
-     API_URL_SEARCH,
-     moviesElem,
-     form
- } from "./app";
 
  form.addEventListener("submit", async (e) => {
      e.preventDefault();
@@ -217,10 +219,6 @@
          searchInput.value = "";
      }
  });
-
- import {
-     search
- } from "./app";
 
  async function getMovies(url) {
      try {
@@ -285,13 +283,6 @@
          container.appendChild(noResultsEl);
      }
  }
-
- import {
-     modalOverlay,
-     modalCloseBtn,
-     modalPrevBtn,
-     modalNextBtn
- } from "./app";
 
  let currentModalPage = 1;
  let moviesPerPage = 10;
@@ -372,19 +363,7 @@
 
  //ЛЕНА КОНЕЦ
 
-
  //ЮЛЯ НАЧАЛО
- import {
-     TOP_FILMS_URL,
-     TOP_FILMS_PAGE_URL,
-     TRILLERS_URL,
-     DRAMAS_URL,
-     FANTASY_URL,
-     COMEDIES_URL,
-     HORRIRS_URL,
-     RANDOM_API_KEY
- } from "./app";
-
  function arrayRandElement(arr) {
      const rand = Math.floor(Math.random() * arr.length);
      return arr[rand]
@@ -409,11 +388,6 @@
          console.error(error)
      }
  };
-
-
- import {
-     moviesRandomEl
- } from "./app";
 
  function showRandomMovie(movie) {
      const country = movie.countries.map((country) => country.country);
@@ -512,10 +486,6 @@
      }
  };
 
- import {
-     boxes
- } from "./app";
-
  function showTopMovies(data, conatainer) {
      const topMoviesBox = document.querySelector(conatainer);
      data.films.forEach((movie) => {
@@ -595,11 +565,6 @@
      numPage = 2
      hideButton()
  })
-
-
- import {
-     loadingDiv
- } from "./app";
 
  const loader = () => {
      loadingDiv.style.display = 'block';
