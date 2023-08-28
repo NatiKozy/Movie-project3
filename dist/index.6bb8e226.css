@@ -571,7 +571,7 @@ a:hover {
   padding: 10px 0;
 }
 
-.search-movie__title, .popular-movie__title {
+.search-movie__title, .popular-movie__title, .section_title {
   text-align: center;
   color: #fff;
   font-family: Montserrat;
@@ -975,6 +975,7 @@ img.rot {
 }
 
 .top-movie__title {
+  text-align: center;
   color: #fff;
   font-family: Montserrat;
   font-size: 18px;
