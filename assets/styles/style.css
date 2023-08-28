@@ -376,6 +376,25 @@ a:hover {
     font-size: 12px;
   }
 }
+@media (max-width: 520px) {
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .header__search {
+    margin-right: 80px;
+  }
+}
+@media (max-width: 365px) {
+  .header__search {
+    margin-left: 35%;
+  }
+  .header__left-part {
+    margin-bottom: 20px;
+  }
+}
 /* header end */
 /*hamburger menu*/
 .hamburger-menu {
@@ -448,19 +467,19 @@ a:hover {
     transition-duration: 0.25s;
     z-index: 10;
   }
-  .menu__item {
+  .list__item {
     display: block;
     padding: 12px 24px;
     color: #FF4D6D;
     font-family: "Montserrat", serif;
-    font-size: 28px;
+    font-size: 12px;
     font-weight: 400;
     text-decoration: none;
     text-align: center;
     transition-duration: 0.25s;
     z-index: 9;
   }
-  .menu__item:hover {
+  .list__item:hover {
     background-color: #263459;
   }
   .burger-link {

@@ -668,6 +668,8 @@ function getArrayItemsList(array) {
     (0, _app.modalWindowSection).classList.remove("modal-window--active");
 });
 getFilms();
+//НАТАША НАЧАЛО
+//slider realization//
 async function getPremiers() {
     try {
         const response = await fetch((0, _app.PREMIERS_URL), {
@@ -701,6 +703,8 @@ function showPremiers(array) {
     }
 }
 getPremiers();
+//НАТАША КОНЕЦ
+//ЛЕНА НАЧАЛО
 (0, _app.form).addEventListener("submit", async (e)=>{
     e.preventDefault();
     const searchInput = document.querySelector(".header__search");
@@ -821,6 +825,8 @@ async function main() {
     });
 }
 main();
+//ЛЕНА КОНЕЦ
+//ЮЛЯ НАЧАЛО
 function arrayRandElement(arr) {
     const rand = Math.floor(Math.random() * arr.length);
     return arr[rand];

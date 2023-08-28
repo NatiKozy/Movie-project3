@@ -372,6 +372,29 @@ a:hover {
   }
 }
 
+@media (width <= 520px) {
+  .header__container {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+  }
+
+  .header__search {
+    margin-right: 80px;
+  }
+}
+
+@media (width <= 365px) {
+  .header__search {
+    margin-left: 35%;
+  }
+
+  .header__left-part {
+    margin-bottom: 20px;
+  }
+}
+
 .hamburger-menu {
   display: none;
 }
@@ -452,20 +475,20 @@ a:hover {
     box-shadow: 2px 2px 6px #0006;
   }
 
-  .menu__item {
+  .list__item {
     color: #ff4d6d;
     text-align: center;
     z-index: 9;
     padding: 12px 24px;
     font-family: Montserrat, serif;
-    font-size: 28px;
+    font-size: 12px;
     font-weight: 400;
     text-decoration: none;
     transition-duration: .25s;
     display: block;
   }
 
-  .menu__item:hover {
+  .list__item:hover {
     background-color: #263459;
   }
 
