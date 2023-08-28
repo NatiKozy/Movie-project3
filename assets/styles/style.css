@@ -108,11 +108,11 @@ main {
 }
 
 .gallery-btn--right {
-  right: 80px;
+  right: 35px;
 }
 
 .gallery-btn--left {
-  left: 80px;
+  left: 35px;
   transform: rotate(180deg);
 }
 
