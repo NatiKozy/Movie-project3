@@ -6,6 +6,7 @@
 
 .modal-content::-webkit-scrollbar-thumb {
   background-color: #263459;
+  border-radius: 5px;
 }
 
 .modal-content::-webkit-scrollbar-thumb:hover {
