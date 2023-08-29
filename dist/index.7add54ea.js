@@ -574,13 +574,14 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"lgA25":[function(require,module,exports) {
+var _appJs = require("./app.js");
 var _app = require("./app");
 async function getFilms() {
     try {
-        const response = await fetch((0, _app.FILMS_URL_MOVIES), {
+        const response = await fetch((0, _appJs.FILMS_URL_MOVIES), {
             method: "GET",
             headers: {
-                "X-API-KEY": (0, _app.API_KEY_MOVIES),
+                "X-API-KEY": (0, _appJs.API_KEY_MOVIES),
                 "Content-Type": "application/json"
             }
         });
@@ -610,72 +611,72 @@ function checmoviekType(array) {
             {
                 const movies = [];
                 movies.push(item);
-                showMoviesCards((0, _app.movieslist), movies);
+                showMoviesCards((0, _appJs.movieslist), movies);
                 break;
             }
         case "tv-series":
             {
                 const series = [];
                 series.push(item);
-                showMoviesCards((0, _app.seriesList), series);
+                showMoviesCards((0, _appJs.seriesList), series);
                 break;
             }
         case "cartoon":
             {
                 const cartoons = [];
                 cartoons.push(item);
-                showMoviesCards((0, _app.cartoonList), cartoons);
+                showMoviesCards((0, _appJs.cartoonList), cartoons);
                 break;
             }
     }
 }
 document.addEventListener("DOMContentLoaded", function() {
-    (0, _app.moviesBtnRight).addEventListener("click", function() {
-        (0, _app.moviesWrapper).scrollLeft += 200;
+    (0, _appJs.moviesBtnRight).addEventListener("click", function() {
+        (0, _appJs.moviesWrapper).scrollLeft += 200;
     });
-    (0, _app.moviesBtnLeft).addEventListener("click", function() {
-        (0, _app.moviesWrapper).scrollLeft -= 200;
+    (0, _appJs.moviesBtnLeft).addEventListener("click", function() {
+        (0, _appJs.moviesWrapper).scrollLeft -= 200;
     });
-    (0, _app.seriesBtnRight).addEventListener("click", function() {
-        (0, _app.seriesWrapper).scrollLeft += 200;
+    (0, _appJs.seriesBtnRight).addEventListener("click", function() {
+        (0, _appJs.seriesWrapper).scrollLeft += 200;
     });
-    (0, _app.seriesBtnLeft).addEventListener("click", function() {
-        (0, _app.seriesWrapper).scrollLeft -= 200;
+    (0, _appJs.seriesBtnLeft).addEventListener("click", function() {
+        (0, _appJs.seriesWrapper).scrollLeft -= 200;
     });
-    (0, _app.cartoonBtnRight).addEventListener("click", function() {
-        (0, _app.cartoonWrapper).scrollLeft += 200;
+    (0, _appJs.cartoonBtnRight).addEventListener("click", function() {
+        (0, _appJs.cartoonWrapper).scrollLeft += 200;
     });
-    (0, _app.cartoonBtnLeft).addEventListener("click", function() {
-        (0, _app.cartoonWrapper).scrollLeft -= 200;
+    (0, _appJs.cartoonBtnLeft).addEventListener("click", function() {
+        (0, _appJs.cartoonWrapper).scrollLeft -= 200;
     });
 }, false);
 function showMovieModalWindow(image, alt, year, country, genres, text) {
-    (0, _app.modalWindowSection).classList.add("modal-window--active");
-    (0, _app.modalWindowImage).src = image;
-    (0, _app.modalWindowTitle).textContent = alt;
-    (0, _app.modalWindowYear).textContent = `Год: ${year}`;
-    (0, _app.modalWindowCountry).textContent = `Страна: ${country}`;
-    (0, _app.modalWindowGenres).textContent = `Жанр: ${genres}`;
-    (0, _app.modalWindowText).textContent = text;
+    (0, _appJs.modalWindowSection).classList.add("modal-window--active");
+    (0, _appJs.modalWindowImage).src = image;
+    (0, _appJs.modalWindowTitle).textContent = alt;
+    (0, _appJs.modalWindowYear).textContent = `Год: ${year}`;
+    (0, _appJs.modalWindowCountry).textContent = `Страна: ${country}`;
+    (0, _appJs.modalWindowGenres).textContent = `Жанр: ${genres}`;
+    (0, _appJs.modalWindowText).textContent = text;
 }
 function getArrayItemsList(array) {
     const itemsList = [];
     for (let item of array)itemsList.push(item.name);
     return itemsList.join(", ");
 }
-(0, _app.modalWindowBtn).addEventListener("click", (event)=>{
+(0, _appJs.modalWindowBtn).addEventListener("click", (event)=>{
     event.preventDefault();
-    (0, _app.modalWindowSection).classList.remove("modal-window--active");
+    (0, _appJs.modalWindowSection).classList.remove("modal-window--active");
 });
 getFilms();
 //НАТАША НАЧАЛО
 //slider realization//
 async function getPremiers() {
     try {
-        const response = await fetch((0, _app.PREMIERS_URL), {
+        const response = await fetch((0, _appJs.PREMIERS_URL), {
             method: "GET",
             headers: {
-                "X-API-KEY": (0, _app.PREMIERS_API_KEY),
+                "X-API-KEY": (0, _appJs.PREMIERS_API_KEY),
                 "Content-Type": "application/json"
             }
         });
@@ -699,18 +700,18 @@ function showPremiers(array) {
         div.innerHTML = `
          <img src="${imgSrc}">
          `;
-        (0, _app.premiereSlider).append(div);
+        (0, _appJs.premiereSlider).append(div);
     }
 }
 getPremiers();
 //НАТАША КОНЕЦ
 //ЛЕНА НАЧАЛО
-(0, _app.form).addEventListener("submit", async (e)=>{
+(0, _appJs.form).addEventListener("submit", async (e)=>{
     e.preventDefault();
     const searchInput = document.querySelector(".header__search");
     const searchValue = searchInput.value.trim();
     if (searchValue) {
-        const apiSearchUrl = `${(0, _app.API_URL_SEARCH)}${searchValue}`;
+        const apiSearchUrl = `${(0, _appJs.API_URL_SEARCH)}${searchValue}`;
         displaySearchResults(apiSearchUrl);
         searchInput.value = "";
     }
@@ -720,7 +721,7 @@ async function getMovies(url) {
         const resp = await fetch(url, {
             headers: {
                 "Content-Type": "application/json",
-                "X-API-KEY": (0, _app.API_KEY_POPULAR)
+                "X-API-KEY": (0, _appJs.API_KEY_POPULAR)
             }
         });
         const respData = await resp.json();
@@ -765,21 +766,21 @@ let currentModalPage = 1;
 let moviesPerPage = 10;
 let modalMoviesData = [];
 function openModal() {
-    (0, _app.modalOverlay).style.display = "flex";
+    (0, _appJs.modalOverlay).style.display = "flex";
     document.body.style.overflow = "hidden";
 }
 function closeModal() {
-    (0, _app.modalOverlay).style.display = "none";
+    (0, _appJs.modalOverlay).style.display = "none";
     document.body.style.overflow = "auto";
 }
-(0, _app.modalCloseBtn).addEventListener("click", closeModal);
-(0, _app.modalPrevBtn).addEventListener("click", ()=>{
+(0, _appJs.modalCloseBtn).addEventListener("click", closeModal);
+(0, _appJs.modalPrevBtn).addEventListener("click", ()=>{
     if (currentModalPage > 1) {
         currentModalPage--;
         displayMoviesInModal();
     }
 });
-(0, _app.modalNextBtn).addEventListener("click", ()=>{
+(0, _appJs.modalNextBtn).addEventListener("click", ()=>{
     if (currentModalPage * moviesPerPage < modalMoviesData.length) {
         currentModalPage++;
         displayMoviesInModal();
@@ -813,14 +814,14 @@ async function displayMoviesInModal() {
     });
 }
 async function main() {
-    const popularData = await getMovies((0, _app.API_URL_POPULAR));
-    displayMovies(popularData, (0, _app.moviesElem));
-    (0, _app.form).addEventListener("submit", async (e)=>{
+    const popularData = await getMovies((0, _appJs.API_URL_POPULAR));
+    displayMovies(popularData, (0, _appJs.moviesElem));
+    (0, _appJs.form).addEventListener("submit", async (e)=>{
         e.preventDefault();
-        if ((0, _app.search).value) {
-            const apiSearchUrl = `${(0, _app.API_URL_SEARCH)}${(0, _app.search).value}`;
+        if ((0, _appJs.search).value) {
+            const apiSearchUrl = `${(0, _appJs.API_URL_SEARCH)}${(0, _appJs.search).value}`;
             displaySearchResults(apiSearchUrl);
-            (0, _app.search).value = "";
+            (0, _appJs.search).value = "";
         }
     });
 }
@@ -837,7 +838,7 @@ async function getRandomMovie(url) {
         const response = await fetch(url, {
             method: "GET",
             headers: {
-                "X-API-KEY": (0, _app.RANDOM_API_KEY),
+                "X-API-KEY": (0, _appJs.RANDOM_API_KEY),
                 "Content-Type": "application/json"
             }
         });
@@ -873,39 +874,39 @@ function showRandomMovie(movie) {
         ${movie.ratingKinopoisk && `<div class="movie__average movie__average--${getClassOfRate(movie.ratingKinopoisk)}">${movie.ratingKinopoisk}</div>`}
         </div>
         `;
-    (0, _app.moviesRandomEl).append(movieEl);
+    (0, _appJs.moviesRandomEl).append(movieEl);
 }
 function checkSelect() {
     const selectedValue = document.getElementById("select-list").value;
     switch(selectedValue){
         case "Драма":
-            getRandomMovie((0, _app.DRAMAS_URL));
+            getRandomMovie((0, _appJs.DRAMAS_URL));
             break;
         case "Комедия":
-            getRandomMovie((0, _app.COMEDIES_URL));
+            getRandomMovie((0, _appJs.COMEDIES_URL));
             break;
         case "Ужасы":
-            getRandomMovie((0, _app.HORRIRS_URL));
+            getRandomMovie((0, _appJs.HORRIRS_URL));
             break;
         case "Триллер":
-            getRandomMovie((0, _app.TRILLERS_URL));
+            getRandomMovie((0, _appJs.TRILLERS_URL));
             break;
         case "Фантастика":
-            getRandomMovie((0, _app.FANTASY_URL));
+            getRandomMovie((0, _appJs.FANTASY_URL));
             break;
     }
 }
 (0, _app.randomForm).addEventListener("change", (e)=>{
     e.preventDefault();
     checkSelect();
-    (0, _app.moviesRandomEl).innerHTML = "";
+    (0, _appJs.moviesRandomEl).innerHTML = "";
 });
 async function getTopFilms(num) {
     try {
-        const response = await fetch(`${(0, _app.TOP_FILMS_URL)}${num}`, {
+        const response = await fetch(`${(0, _appJs.TOP_FILMS_URL)}${num}`, {
             method: "GET",
             headers: {
-                "X-API-KEY": (0, _app.RANDOM_API_KEY),
+                "X-API-KEY": (0, _appJs.RANDOM_API_KEY),
                 "Content-Type": "application/json"
             }
         });
@@ -918,10 +919,10 @@ async function getTopFilms(num) {
 getTopFilms("1");
 async function getTopFilmsTwo(num) {
     try {
-        const response = await fetch(`${(0, _app.TOP_FILMS_URL)}${num}`, {
+        const response = await fetch(`${(0, _appJs.TOP_FILMS_URL)}${num}`, {
             method: "GET",
             headers: {
-                "X-API-KEY": (0, _app.RANDOM_API_KEY),
+                "X-API-KEY": (0, _appJs.RANDOM_API_KEY),
                 "Content-Type": "application/json"
             }
         });
@@ -959,7 +960,7 @@ function showTopMovies(data, conatainer) {
         </div>
         `;
         topMoviesBox.append(topMovie);
-        (0, _app.boxes).append(topMoviesBox);
+        (0, _appJs.boxes).append(topMoviesBox);
     });
 }
 function disableBtn(btn) {
@@ -998,10 +999,10 @@ hideBtn.addEventListener("click", (event)=>{
     hideButton();
 });
 const loader = ()=>{
-    (0, _app.loadingDiv).style.display = "block";
+    (0, _appJs.loadingDiv).style.display = "block";
 };
 const hiddenLoader = ()=>{
-    (0, _app.loadingDiv).style.display = "none";
+    (0, _appJs.loadingDiv).style.display = "none";
 };
 window.onload = function() {
     window.setTimeout(function() {
@@ -1011,6 +1012,6 @@ window.onload = function() {
 } //ЮЛЯ КОНЕЦ
 ;
 
-},{"./app":"4EY4w"}]},["hW6xH","lgA25"], "lgA25", "parcelRequire0a4d")
+},{"./app.js":"4EY4w","./app":"4EY4w"}]},["hW6xH","lgA25"], "lgA25", "parcelRequire0a4d")
 
 //# sourceMappingURL=index.7add54ea.js.map
