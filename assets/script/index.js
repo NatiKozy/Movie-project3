@@ -1,4 +1,4 @@
- import {
+import {
     FILMS_URL_MOVIES,
     API_KEY_MOVIES,
     movieslist,
@@ -45,7 +45,8 @@
     moviesRandomEl,
     boxes,
     loadingDiv
-} from "./app";
+} from "./app.js";
+
 
 
  async function getFilms() {
