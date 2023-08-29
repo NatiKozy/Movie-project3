@@ -575,7 +575,6 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"lgA25":[function(require,module,exports) {
 var _appJs = require("./app.js");
-var _app = require("./app");
 async function getFilms() {
     try {
         const response = await fetch((0, _appJs.FILMS_URL_MOVIES), {
@@ -896,7 +895,7 @@ function checkSelect() {
             break;
     }
 }
-(0, _app.randomForm).addEventListener("change", (e)=>{
+(0, _appJs.randomForm).addEventListener("change", (e)=>{
     e.preventDefault();
     checkSelect();
     (0, _appJs.moviesRandomEl).innerHTML = "";
@@ -1012,6 +1011,6 @@ window.onload = function() {
 } //ЮЛЯ КОНЕЦ
 ;
 
-},{"./app.js":"4EY4w","./app":"4EY4w"}]},["hW6xH","lgA25"], "lgA25", "parcelRequire0a4d")
+},{"./app.js":"4EY4w"}]},["hW6xH","lgA25"], "lgA25", "parcelRequire0a4d")
 
 //# sourceMappingURL=index.7add54ea.js.map
