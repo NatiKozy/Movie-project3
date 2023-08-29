@@ -44,7 +44,8 @@ import {
     RANDOM_API_KEY,
     moviesRandomEl,
     boxes,
-    loadingDiv
+    loadingDiv,
+    randomForm
 } from "./app.js";
 
 
@@ -442,10 +443,6 @@ import {
              break;
      }
  }
-
- import {
-     randomForm
- } from "./app";
 
  randomForm.addEventListener('change', (e) => {
      e.preventDefault();
